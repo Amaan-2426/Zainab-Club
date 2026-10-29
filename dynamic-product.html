@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Product | ZAINAB CLUB</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .dynamic-product-page {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+
+        .dynamic-product-media {
+            width: 100%;
+            min-height: 350px;
+            background: #f2eee8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .dynamic-product-media img,
+        .dynamic-product-media video {
+            width: 100%;
+            max-height: 600px;
+            object-fit: contain;
+        }
+
+        .dynamic-product-info h1 {
+            font-size: 34px;
+            margin: 12px 0;
+        }
+
+        .dynamic-product-price {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .dynamic-product-description {
+            line-height: 1.8;
+            color: #555;
+            margin: 20px 0;
+        }
+
+        .variant-field {
+            margin: 20px 0;
+        }
+
+        .variant-field label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .variant-field select,
+        .quantity-input {
+            width: 100%;
+            max-width: 300px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            background: white;
+            font: inherit;
+        }
+
+        .dynamic-add-to-cart {
+            padding: 15px 26px;
+            background: #171717;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            font: inherit;
+        }
+
+        .dynamic-add-to-cart:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .dynamic-product-message {
+            margin-top: 16px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 700px) {
+            .dynamic-product-page {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                margin: 20px auto;
+                padding: 16px;
+            }
+
+            .dynamic-product-info h1 {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar">
+        <a href="index.html" class="logo">ZAINAB CLUB.</a>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#men">Men</a>
+            <a href="index.html#jewellery">Jewellery</a>
+            <a href="cart.html">Cart</a>
+            <a href="track-order.html">Track Order</a>
+        </nav>
+    </header>
+
+    <main>
+        <p id="product-loading" style="text-align:center; padding:40px;">
+            Loading product...
+        </p>
+
+        <section
+            id="dynamic-product"
+            class="dynamic-product-page"
+            hidden
+        >
+            <div id="dynamic-product-media" class="dynamic-product-media"></div>
+
+            <div class="dynamic-product-info">
+                <p id="dynamic-product-category" class="section-label"></p>
+                <h1 id="dynamic-product-name"></h1>
+                <p id="dynamic-product-price" class="dynamic-product-price"></p>
+
+                <p
+                    id="dynamic-product-description"
+                    class="dynamic-product-description"
+                ></p>
+
+                <div class="variant-field">
+                    <label for="product-variant">Choose size / colour</label>
+                    <select id="product-variant" required></select>
+                </div>
+
+                <div class="variant-field">
+                    <label for="product-quantity">Quantity</label>
+                    <input
+                        id="product-quantity"
+                        class="quantity-input"
+                        type="number"
+                        min="1"
+                        value="1"
+                    >
+                </div>
+
+                <p id="product-stock"></p>
+
+                <button
+                    id="dynamic-add-to-cart"
+                    class="dynamic-add-to-cart"
+                    type="button"
+                >
+                    Add to Cart
+                </button>
+
+                <p
+                    id="dynamic-product-message"
+                    class="dynamic-product-message"
+                    role="status"
+                    aria-live="polite"
+                ></p>
+            </div>
+        </section>
+    </main>
+
+   <script src="./js/api.js"></script>
+<script src="./js/catalogue.js"></script>
+<script src="./js/cart-store.js"></script>
+<script src="./js/dynamic-product.js"></script>
+</body>
+</html>

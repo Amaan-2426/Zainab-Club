@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Product Details | ZAINAB CLUB</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="product.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <a href="index.html" class="logo">
+            ZAINAB CLUB.
+        </a>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#men">Men</a>
+            <a href="index.html#jewellery">Jewellery</a>
+            <a href="cart.html">Cart</a>
+        </nav>
+
+    </header>
+
+    <!-- PRODUCT DETAILS -->
+    <main class="product-details">
+
+        <!-- IMAGE AREA -->
+        <div class="product-gallery">
+
+<div class="main-product-image">
+    <video autoplay muted loop playsinline controls>
+        <source src="./trackpant2.mp4" type="video/mp4">
+        Your browser does not support video playback.
+    </video>
+</div>
+
+
+        </div>
+
+        <!-- PRODUCT INFORMATION -->
+        <div class="product-description">
+
+            <p class="product-category">MEN'S COLLECTION</p>
+
+            <h1>Everyday Essential Trackpant</h1>
+
+            <p class="detail-price">₹450</p>
+
+            <p class="detail-text">
+                An everyday essential designed for
+                comfortable and effortless styling.
+            </p>
+
+            <!-- SIZE OPTIONS -->
+            <h3>Select Size</h3>
+
+            
+<div class="size-options">
+    <button type="button" class="option-button" data-size="S">S</button>
+    <button type="button" class="option-button" data-size="M">M</button>
+    <button type="button" class="option-button" data-size="L">L</button>
+    <button type="button" class="option-button" data-size="XL">XL</button>
+       <button type="button" class="option-button" data-size="XXL">XXL</button>
+</div>
+
+
+            <!-- COLOUR OPTIONS -->
+            <h3>Select Colour</h3>
+
+<div class="colour-options">
+    <button type="button" class="option-button" data-colour="Black">Black</button>
+    <button type="button" class="option-button" data-colour="Brown">Brown</button>
+    <button type="button" class="option-button" data-colour="Olive Green">Olive Green</button>
+</div>
+
+
+<button class="add-to-cart" id="addToCart" type="button">
+    ADD TO CART — ₹450
+</button>
+
+<p id="cart-message" aria-live="polite"></p>
+
+
+            <p class="delivery-note">
+                Product images and colour availability
+                will be confirmed before launch.
+            </p>
+
+        </div>
+
+    </main>
+
+<script src="./js/catalogue.js"></script>
+<script src="./js/cart-store.js"></script>
+<script>
+    // SIZE SELECTION
+    const sizeButtons = document.querySelectorAll("[data-size]");
+
+    sizeButtons.forEach(function(button) {
+        button.addEventListener("click", function() {
+            sizeButtons.forEach(function(item) {
+                item.classList.remove("selected");
+            });
+
+            button.classList.add("selected");
+        });
+    });
+
+    // COLOUR SELECTION
+    const colourButtons = document.querySelectorAll("[data-colour]");
+
+    colourButtons.forEach(function(button) {
+        button.addEventListener("click", function() {
+            colourButtons.forEach(function(item) {
+                item.classList.remove("selected");
+            });
+
+            button.classList.add("selected");
+        });
+    });
+
+    // ADD TO CART
+    const addToCartButton = document.getElementById("addToCart");
+    const cartMessage = document.getElementById("cart-message");
+
+    addToCartButton.addEventListener("click", function() {
+        const selectedSize = document.querySelector("[data-size].selected");
+        const selectedColour = document.querySelector("[data-colour].selected");
+
+        if (!selectedSize) {
+            cartMessage.textContent = "Please select a size first.";
+            return;
+        }
+
+        if (!selectedColour) {
+            cartMessage.textContent = "Please select a colour first.";
+            return;
+        }
+
+        const size = selectedSize.dataset.size;
+        const colour = selectedColour.dataset.colour;
+
+        addToZainabCart({
+            name: "Everyday Essential Trackpant",
+            price: 450,
+            size: size,
+            colour: colour,
+            quantity: 1
+        });
+
+        cartMessage.textContent = "Product added to your cart successfully!";
+    });
+</script>
+
+</body>
+
+</html>

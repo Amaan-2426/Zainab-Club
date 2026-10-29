@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Your Shopping Cart | ZAINAB CLUB</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="product.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <a href="index.html" class="logo">ZAINAB CLUB.</a>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#men">Men</a>
+            <a href="index.html#jewellery">Jewellery</a>
+        </nav>
+    </header>
+
+    <main class="cart-page">
+        <h1>Your Shopping Cart</h1>
+        <p class="cart-subtitle">Review your selected pieces.</p>
+
+        <div id="cart-items"></div>
+
+        <div class="cart-summary">
+            <h2>Total: <span id="cart-total">₹0</span></h2>
+
+            <button id="clear-cart" class="add-to-cart" type="button">
+                CLEAR CART
+            </button>
+
+            <a href="checkout.html" class="add-to-cart" style="display:inline-block;text-align:center;text-decoration:none;margin-top:12px;">
+                CHECKOUT
+            </a>
+
+            <a href="index.html" class="continue-shopping">
+                Continue Shopping
+            </a>
+        </div>
+    </main>
+
+    <script src="cart.js"></script>
+
+</body>
+</html>

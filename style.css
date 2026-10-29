@@ -1,0 +1,786 @@
+
+/* =========================================
+   ZAINAB CLUB — RESPONSIVE GLOBAL STYLES
+   Mobile • Tablet • Laptop • Desktop
+========================================= */
+
+:root {
+    --cream: #f5f1e9;
+    --light-cream: #faf8f4;
+    --beige: #e6dccd;
+    --text: #201f1c;
+    --muted: #77736c;
+    --accent: #8b765e;
+    --border: #ded6ca;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    min-height: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 20px;
+    overflow-x: clip;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    font-family: Arial, sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    overflow-wrap: break-word;
+}
+
+/* Images and media must not exceed their parent */
+
+img,
+video {
+    max-width: 100%;
+}
+
+img {
+    display: block;
+}
+
+a {
+    color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button,
+select {
+    max-width: 100%;
+}
+
+button {
+    cursor: pointer;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 22px 7%;
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(20px, 2vw, 25px);
+    font-weight: bold;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: 2px;
+    flex-shrink: 0;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: clamp(14px, 2.5vw, 32px);
+}
+
+.nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #9b7956;
+}
+
+/* =========================================
+   HERO SECTION
+========================================= */
+
+.hero {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: center;
+    gap: clamp(28px, 5vw, 60px);
+    padding: clamp(48px, 7vw, 80px) 7%;
+    min-height: 0;
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 520px;
+    min-width: 0;
+}
+
+.hero-label {
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    line-height: 1.8;
+    margin-bottom: 24px;
+}
+
+.hero h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(36px, 4.5vw, 64px);
+    line-height: 1.08;
+    font-weight: 500;
+    letter-spacing: -1.5px;
+    margin-bottom: 24px;
+}
+
+.hero h1 span {
+    display: block;
+    color: var(--accent);
+}
+
+.hero-description {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.9;
+    max-width: 420px;
+    margin-bottom: 32px;
+}
+
+.hero-button {
+    display: inline-block;
+    max-width: 100%;
+    background: var(--text);
+    color: white;
+    padding: 16px 24px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    line-height: 1.6;
+    transition: background-color 0.3s ease;
+}
+
+.hero-button:hover {
+    background: var(--accent);
+}
+
+.hero-image {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+    background: var(--beige);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+    color: #5e5a53;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.hero-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-image p,
+.hero-image span {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-image p {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(17px, 2vw, 21px);
+}
+
+.hero-image span {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+/* =========================================
+   COLLECTIONS
+========================================= */
+
+.collections {
+    padding: clamp(48px, 7vw, 90px) 7%;
+    background: var(--light-cream);
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: clamp(30px, 4vw, 48px);
+}
+
+.section-label {
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    line-height: 1.8;
+    margin-bottom: 14px;
+}
+
+.section-heading h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: normal;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    margin-bottom: 14px;
+}
+
+.section-description {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.collection-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(16px, 3vw, 28px);
+}
+
+.collection-card {
+    min-width: 0;
+}
+
+.collection-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #5e5a53;
+    padding: 20px;
+    overflow: hidden;
+    background: var(--beige);
+    transition: background-color 0.3s ease;
+}
+
+.collection-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.collection-image p {
+    position: relative;
+    z-index: 1;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(16px, 2vw, 20px);
+}
+
+.jewellery-image {
+    background: #eee6dc;
+}
+
+.collection-card:hover .collection-image {
+    background-color: #e0d4c3;
+}
+
+.collection-info {
+    padding-top: 20px;
+}
+
+.collection-info h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(18px, 2vw, 23px);
+    font-weight: normal;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+.collection-info p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+.collection-info a {
+    display: inline-block;
+    color: var(--text);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    line-height: 1.7;
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.collection-info a:hover {
+    color: #9b7956;
+}
+
+/* =========================================
+   PRODUCT SECTIONS
+========================================= */
+
+.products-section {
+    padding: clamp(48px, 7vw, 90px) 7%;
+    background: var(--cream);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(16px, 3vw, 28px);
+}
+
+.product-card {
+    min-width: 0;
+}
+
+.product-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    min-height: 0;
+    background: var(--beige);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 16px;
+    color: #5e5a53;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+}
+
+.product-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-image p {
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.product-card:hover .product-image {
+    background-color: #e0d4c3;
+}
+
+.product-info {
+    padding-top: 16px;
+}
+
+.product-info h3 {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.product-price {
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.3px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.product-sizes {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.product-link {
+    display: block;
+    min-width: 0;
+    color: inherit;
+    text-decoration: none;
+}
+
+.product-link .product-info h3 {
+    transition: color 0.3s ease;
+}
+
+.product-link:hover .product-info h3 {
+    color: var(--accent);
+}
+
+.product-link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+/* Videos inside product cards */
+
+.product-image video,
+.jewellery-product-image video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+.graphic-video-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.graphic-video-container .graphic-video {
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.graphic-video-container .graphic-video.active {
+    display: block;
+}
+
+/* =========================================
+   JEWELLERY
+========================================= */
+
+.jewellery-section {
+    background: var(--light-cream);
+}
+
+.jewellery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.jewellery-product-image {
+    background: #eee6dc;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.site-footer {
+    background: var(--text);
+    color: var(--cream);
+    padding: clamp(40px, 6vw, 65px) 7% 25px;
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: clamp(24px, 4vw, 50px);
+    padding-bottom: 45px;
+}
+
+.footer-logo {
+    display: inline-block;
+    color: var(--cream);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-decoration: none;
+    margin-bottom: 18px;
+}
+
+.footer-brand p {
+    max-width: 300px;
+    color: #c2bbb0;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    min-width: 0;
+}
+
+.footer-column h3 {
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.footer-column a {
+    color: #c2bbb0;
+    font-size: 12px;
+    line-height: 1.7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    border-top: 1px solid #49453f;
+    padding-top: 22px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.footer-bottom p {
+    color: #aaa398;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+/* =========================================
+   ADMIN TABLE — ONLY ADMIN TABLE SCROLLS
+========================================= */
+
+.table-responsive {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+}
+
+.table-responsive table {
+    width: 100%;
+    min-width: 850px;
+    border-collapse: collapse;
+}
+
+.table-responsive th,
+.table-responsive td {
+    white-space: nowrap;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+    .navbar {
+        padding: 20px 5%;
+    }
+
+    .hero {
+        gap: 28px;
+        padding: 55px 5%;
+    }
+
+    .collections,
+    .products-section {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .footer-main {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+    .navbar {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
+        padding: 18px 5%;
+    }
+
+    .logo {
+        font-size: 22px;
+        letter-spacing: 1.5px;
+    }
+
+    .nav-links {
+        justify-content: flex-start;
+        width: 100%;
+        gap: 14px 20px;
+    }
+
+    .nav-links a {
+        font-size: 10px;
+    }
+
+    .hero {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+        padding: 42px 5%;
+    }
+
+    .hero h1 {
+        font-size: clamp(35px, 10vw, 48px);
+        letter-spacing: -1px;
+    }
+
+    .hero-description {
+        font-size: 13px;
+        margin-bottom: 24px;
+    }
+
+    .hero-image {
+        aspect-ratio: 4 / 3;
+    }
+
+    .collections,
+    .products-section {
+        padding: 45px 5%;
+    }
+
+    .section-heading {
+        margin-bottom: 28px;
+    }
+
+    .collection-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 30px;
+    }
+
+    .collection-image {
+        aspect-ratio: 4 / 3;
+    }
+
+    .product-grid,
+    .jewellery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 26px 12px;
+    }
+
+    .product-image {
+        aspect-ratio: 3 / 4;
+        padding: 10px;
+    }
+
+    .product-info h3 {
+        font-size: 13px;
+    }
+
+    .product-price {
+        font-size: 13px;
+    }
+
+    .footer-main {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 30px 18px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 360px) {
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 9px;
+        letter-spacing: 0.5px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .product-grid,
+    .jewellery-grid {
+        gap: 22px 10px;
+    }
+
+    .product-info h3 {
+        font-size: 12px;
+    }
+
+    .product-price {
+        font-size: 12px;
+    }
+}
+
+/* Respect reduced-motion preference */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}

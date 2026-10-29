@@ -1,0 +1,302 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Your Order | ZAINAB CLUB</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .track-container {
+            max-width: 600px;
+            margin: 60px auto;
+            padding: 30px 20px;
+        }
+
+        .track-container h1 {
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .track-container > p {
+            text-align: center;
+            color: #666;
+        }
+
+        .track-form {
+            display: grid;
+            gap: 16px;
+            margin-top: 30px;
+        }
+
+        .track-form label {
+            display: grid;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .track-form input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 13px;
+            border: 1px solid #ccc;
+            font: inherit;
+        }
+
+        .track-form button {
+            padding: 14px;
+            background: #171717;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font: inherit;
+        }
+
+        #track-result {
+            margin-top: 25px;
+            line-height: 1.8;
+            overflow-wrap: anywhere;
+        }
+        
+/* TRACK ORDER PAGE */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f5f1e9;
+    color: #191919;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* HEADER */
+
+header {
+    background: #f5f1e9;
+    padding: 25px 7%;
+    border-bottom: 1px solid #ded7cb;
+}
+
+header h1 {
+    margin: 0 0 18px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+header nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+}
+
+header nav a {
+    color: #191919;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    transition: opacity 0.2s ease;
+}
+
+header nav a:hover {
+    opacity: 0.55;
+}
+
+/* MAIN CONTAINER */
+
+.track-container {
+    width: min(100% - 32px, 620px);
+    margin: 75px auto;
+    padding: 45px;
+    background: #fffdf9;
+    border: 1px solid #e5ded3;
+}
+
+/* PAGE HEADING */
+
+.track-container h1 {
+    margin: 0 0 12px;
+    text-align: center;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 34px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.track-container > p {
+    margin: 0 0 35px;
+    color: #777066;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* TRACKING FORM */
+
+.track-form {
+    display: grid;
+    gap: 22px;
+    margin-top: 25px;
+}
+
+.track-form label {
+    display: grid;
+    gap: 10px;
+    color: #292621;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.track-form input {
+    width: 100%;
+    min-height: 49px;
+    padding: 13px 15px;
+    border: 1px solid #d8d0c4;
+    border-radius: 0;
+    background: #fff;
+    color: #191919;
+    font: 15px Arial, Helvetica, sans-serif;
+    text-transform: none;
+    letter-spacing: normal;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.track-form input:focus {
+    border-color: #191919;
+}
+
+/* BUTTON */
+
+.track-form button {
+    width: 100%;
+    min-height: 51px;
+    margin-top: 5px;
+    padding: 14px 20px;
+    border: 1px solid #191919;
+    background: #191919;
+    color: #fffdf9;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.track-form button:hover {
+    background: #f5f1e9;
+    color: #191919;
+}
+
+/* ORDER RESULTS */
+
+#track-result {
+    margin-top: 30px;
+    padding: 0;
+    color: #38342e;
+    font-size: 14px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+#track-result h2 {
+    padding-bottom: 12px;
+    border-bottom: 1px solid #ded7cb;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+#track-result h3 {
+    margin-top: 25px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+#track-result ul {
+    padding-left: 22px;
+}
+
+#track-result li {
+    margin-bottom: 10px;
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 600px) {
+    header {
+        padding: 22px 20px;
+    }
+
+    header h1 {
+        font-size: 25px;
+        letter-spacing: 3px;
+    }
+
+    header nav {
+        gap: 18px;
+    }
+
+    header nav a {
+        font-size: 11px;
+    }
+
+    .track-container {
+        width: calc(100% - 28px);
+        margin: 35px auto;
+        padding: 28px 20px;
+    }
+
+    .track-container h1 {
+        font-size: 28px;
+    }
+
+    .track-container > p {
+        font-size: 13px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ZAINAB CLUB.</h1>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="index.html#men">MEN</a>
+            <a href="index.html#jewellery">JEWELLERY</a>
+        </nav>
+    </header>
+
+    <main class="track-container">
+        <h1>Track Your Order</h1>
+        <p>Enter the order details you received at checkout.</p>
+
+        <form id="track-form" class="track-form">
+            <label>
+                Order ID
+                <input id="order-id" type="text" required>
+            </label>
+
+            <label>
+                Order Access Token
+                <input id="access-token" type="password" required>
+            </label>
+
+            <button type="submit">Find My Order</button>
+        </form>
+
+        <section id="track-result" aria-live="polite"></section>
+    </main>
+
+   <script src="./js/api.js"></script>
+<script src="./track-order.js"></script>
+</body>
+</html>

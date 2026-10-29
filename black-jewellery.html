@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Black-Bead Jewellery Set | ZAINAB CLUB</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="product.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <a href="index.html" class="logo">ZAINAB CLUB.</a>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#men">Men</a>
+            <a href="index.html#jewellery">Jewellery</a>
+              <a href="cart.html">Cart</a>
+        </nav>
+    </header>
+
+    <!-- PRODUCT DETAILS -->
+    <main class="product-details">
+
+        <!-- PRODUCT IMAGE -->
+        <div class="product-gallery">
+            
+<div class="main-product-image">
+    <video autoplay muted loop playsinline controls>
+        <source src="./blackneclace2.mp4" type="video/mp4">
+        Your browser does not support video playback.
+    </video>
+</div>
+
+        </div>
+
+        <!-- PRODUCT INFORMATION -->
+        <div class="product-description">
+
+            <p class="product-category">JEWELLERY COLLECTION</p>
+
+            <h1>Black-Bead Necklace & Earrings Set</h1>
+
+            <p class="detail-price">₹250</p>
+
+            <p class="detail-text">
+                A stylish black-bead jewellery set featuring a matching
+                necklace and earrings, perfect for everyday styling.
+            </p>
+
+            <h3>Product Includes</h3>
+
+            <p class="detail-text">
+                1 Necklace + Matching Earrings
+            </p>
+
+           
+<button class="add-to-cart" id="addToCart" type="button">
+    ADD TO CART — ₹250
+</button>
+
+<p id="cart-message" aria-live="polite"></p>
+
+            <p class="delivery-note">
+                Product photos and availability will be confirmed before launch.
+            </p>
+
+        </div>
+
+    </main>
+
+<script src="./js/catalogue.js"></script>
+<script src="./js/cart-store.js"></script>
+<script>
+    const addToCartButton = document.getElementById("addToCart");
+    const cartMessage = document.getElementById("cart-message");
+
+    addToCartButton.addEventListener("click", function() {
+        addToZainabCart({
+            name: "Black-Bead Necklace & Earrings Set",
+            price: 250,
+            quantity: 1
+        });
+
+        cartMessage.textContent =
+            "✓ Black-Bead Jewellery Set added to your cart!";
+    });
+</script>
+
+</body>
+</html>

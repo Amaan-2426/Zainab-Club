@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmed | ZAINAB CLUB</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .success-container {
+            max-width: 650px;
+            margin: 70px auto;
+            padding: 40px 25px;
+            text-align: center;
+            background: #f5f0e7;
+            border: 1px solid #ded6c9;
+        }
+
+        .success-icon {
+            font-size: 52px;
+            color: #426b45;
+            margin-bottom: 15px;
+        }
+
+        .success-container h1 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .success-container p {
+            line-height: 1.7;
+            color: #555;
+            overflow-wrap: anywhere;
+        }
+
+        .order-reference {
+            padding: 15px;
+            margin: 25px 0;
+            background: #fff;
+            overflow-wrap: anywhere;
+        }
+
+        .success-actions {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .success-actions a {
+            display: inline-block;
+            padding: 12px 20px;
+            background: #171717;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .success-actions a:hover {
+            background: #444;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ZAINAB CLUB.</h1>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="index.html#men">MEN</a>
+            <a href="index.html#jewellery">JEWELLERY</a>
+            <a href="track-order.html">Track Order</a>
+        </nav>
+    </header>
+
+    <main class="success-container">
+        <div class="success-icon" aria-hidden="true">✓</div>
+
+        <h1>Order Placed Successfully!</h1>
+
+        <p>
+            Thank you for shopping with ZAINAB CLUB.
+            Your order has been saved successfully.
+        </p>
+
+        <div class="order-reference">
+            <p><strong>Order reference:</strong></p>
+            <p id="order-reference">Loading...</p>
+
+            <p><strong>Total:</strong></p>
+            <p id="order-total">—</p>
+
+            <p><strong>Payment status:</strong></p>
+            <p id="payment-status">Unpaid — payment has not been collected.</p>
+        </div>
+
+        <p id="access-token-message">
+            Keep your order access token private.
+        </p>
+
+        <div class="success-actions">
+            <a href="index.html">Continue Shopping</a>
+            <a href="cart.html">View Cart</a>
+        </div>
+    </main>
+
+    <script src="order-success.js"></script>
+</body>
+</html>

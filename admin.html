@@ -1,0 +1,1037 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <meta name="theme-color" content="#f5f1e9">
+    <title>Admin Dashboard | ZAINAB CLUB</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ==================================
+           1. RESET AND PAGE SCROLLING
+        ================================== */
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            width: 100%;
+            min-height: 100%;
+            overflow-x: clip;
+            -webkit-text-size-adjust: 100%;
+            scroll-behavior: smooth;
+            scroll-padding-top: 16px;
+        }
+
+        body {
+            margin: 0;
+            width: 100%;
+            min-width: 0;
+            min-height: 100vh;
+            min-height: 100dvh;
+            overflow-x: clip;
+            overflow-y: auto;
+            background: #f5f1e9;
+            color: #201f1c;
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit;
+        }
+
+        button,
+        a,
+        input,
+        select {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        button {
+            touch-action: manipulation;
+        }
+
+        a {
+            overflow-wrap: anywhere;
+        }
+
+        img,
+        video,
+        iframe {
+            max-width: 100%;
+        }
+
+        /* ==================================
+           2. HEADER AND NAVIGATION
+        ================================== */
+
+        .admin-header {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            padding: 22px clamp(14px, 4vw, 60px);
+            background: #fffdfa;
+            border-bottom: 1px solid #e3dbcf;
+        }
+
+        .brand {
+            margin: 0 0 16px;
+            font-family: Georgia, serif;
+            font-size: clamp(25px, 5vw, 36px);
+            font-weight: bold;
+            letter-spacing: 1px;
+            line-height: 1.2;
+            overflow-wrap: anywhere;
+        }
+
+        .admin-nav {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px 22px;
+            width: 100%;
+        }
+
+        .admin-nav a {
+            display: inline-block;
+            padding: 6px 0;
+            color: #201f1c;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .admin-nav a:hover,
+        .admin-nav a:focus-visible {
+            text-decoration: underline;
+            text-underline-offset: 5px;
+        }
+
+        /* ==================================
+           3. MAIN CONTAINER AND HEADINGS
+        ================================== */
+
+        .admin-container {
+            display: block;
+            width: 100%;
+            max-width: 1400px;
+            min-width: 0;
+            margin-inline: auto;
+            padding: clamp(18px, 3vw, 36px)
+                     clamp(12px, 3vw, 36px)
+                     max(40px, env(safe-area-inset-bottom));
+        }
+
+        .admin-container > * {
+            min-width: 0;
+        }
+
+        .eyebrow {
+            margin: 0 0 8px;
+            color: #77716a;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: Georgia, serif;
+            overflow-wrap: anywhere;
+        }
+
+        h1 {
+            margin: 0 0 22px;
+            font-size: clamp(29px, 5vw, 44px);
+            line-height: 1.15;
+        }
+
+        h2 {
+            font-size: clamp(22px, 3vw, 29px);
+            line-height: 1.25;
+        }
+
+        .section-heading {
+            margin: 0 0 14px;
+        }
+
+        /* ==================================
+           4. BUTTONS
+        ================================== */
+
+        .button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 44px;
+            max-width: 100%;
+            padding: 12px 18px;
+            border: 1px solid #171717;
+            border-radius: 0;
+            background: #171717;
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 1.4;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            overflow-wrap: anywhere;
+        }
+
+        .button:hover {
+            background: #35312c;
+        }
+
+        .button:focus-visible,
+        .admin-nav a:focus-visible,
+        .table-responsive:focus-visible,
+        input:focus-visible,
+        select:focus-visible {
+            outline: 3px solid #a78a63;
+            outline-offset: 3px;
+        }
+
+        .button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* ==================================
+           5. STATISTICS CARDS
+        ================================== */
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+            width: 100%;
+            margin: 28px 0 38px;
+        }
+
+        .stat-card {
+            min-width: 0;
+            padding: clamp(14px, 2vw, 24px);
+            background: #fffdfa;
+            border: 1px solid #e3dbcf;
+        }
+
+        .stat-card p {
+            margin: 0 0 12px;
+            color: #77716a;
+            font-size: 14px;
+            line-height: 1.5;
+            overflow-wrap: anywhere;
+        }
+
+        .stat-card strong {
+            display: block;
+            font-size: clamp(25px, 3vw, 34px);
+            line-height: 1.2;
+            overflow-wrap: anywhere;
+        }
+
+        /* ==================================
+           6. STATUS MESSAGE
+        ================================== */
+
+        #admin-message {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            min-height: 24px;
+            margin: 0 0 14px;
+            color: #49443d;
+            font-size: 14px;
+            line-height: 1.6;
+            overflow-wrap: anywhere;
+            word-break: normal;
+        }
+
+        /* ==================================
+           7. RESPONSIVE ORDERS TABLE
+
+           The table scrolls horizontally.
+           The complete page scrolls vertically.
+        ================================== */
+
+        .table-responsive {
+            display: block;
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            margin: 0 0 32px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior-x: contain;
+            border: 1px solid #e3dbcf;
+            background: #fffdfa;
+            scrollbar-width: auto;
+            scrollbar-color: #a69b8d #eee7dd;
+        }
+
+        .orders-table {
+            width: 100%;
+            min-width: 1000px;
+            margin: 0;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: #fffdfa;
+            color: #201f1c;
+            text-align: left;
+        }
+
+        .orders-table th {
+            background: #eee7dd;
+            color: #201f1c;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+        }
+
+        .orders-table th,
+        .orders-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #e7dfd4;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+
+        .orders-table tbody tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .orders-table tbody tr:hover {
+            background: #faf6ef;
+        }
+
+        .orders-table select {
+            width: auto;
+            max-width: 190px;
+            min-height: 42px;
+            padding: 9px 30px 9px 10px;
+            border: 1px solid #d9d0c4;
+            border-radius: 0;
+            background: #fffdfa;
+            color: #201f1c;
+            font-size: 14px;
+        }
+
+        .orders-table button {
+            min-width: 44px;
+            min-height: 42px;
+            max-width: none;
+            padding: 10px 13px;
+            border: 0;
+            border-radius: 0;
+            background: #171717;
+            color: #fff;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .orders-table button:hover {
+            background: #35312c;
+        }
+
+        /* ==================================
+           8. ADMIN LOGIN FORM
+        ================================== */
+
+        .admin-login {
+            display: block;
+            width: 100%;
+            max-width: 560px;
+            min-width: 0;
+            margin: 36px auto 12px;
+            padding: clamp(18px, 4vw, 30px);
+            background: #fffdfa;
+            border: 1px solid #e3dbcf;
+            scroll-margin-top: 20px;
+        }
+
+        .admin-login h2 {
+            margin: 0 0 12px;
+        }
+
+        .admin-login p {
+            margin: 0 0 22px;
+            color: #77716a;
+            font-size: 14px;
+            line-height: 1.7;
+            overflow-wrap: anywhere;
+        }
+
+        .admin-login form {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 10px;
+            width: 100%;
+        }
+
+        .admin-login label {
+            margin-top: 8px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .admin-login input {
+            display: block;
+            width: 100%;
+            min-width: 0;
+            min-height: 48px;
+            padding: 12px 14px;
+            border: 1px solid #d9d0c4;
+            border-radius: 0;
+            background: #fff;
+            color: #201f1c;
+            font-size: 16px;
+        }
+
+        .admin-login input:focus {
+            border-color: #8b765c;
+        }
+
+        .admin-login form .button {
+            width: 100%;
+            margin-top: 12px;
+            white-space: normal;
+        }
+
+        /* ==================================
+           9. ORDER DETAILS DIALOG
+
+           Works if admin.js opens a <dialog>
+           with class="order-details-dialog".
+        ================================== */
+
+        .order-details-dialog {
+            width: calc(100% - 28px);
+            max-width: 620px;
+            max-height: 85vh;
+            max-height: 85dvh;
+            margin: auto;
+            padding: clamp(16px, 4vw, 28px);
+            overflow-x: hidden;
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            border: 1px solid #e3dbcf;
+            background: #fffdfa;
+            color: #201f1c;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .order-details-dialog::backdrop {
+            background: rgb(0 0 0 / 60%);
+        }
+
+        .order-details-dialog p,
+        .order-details-dialog li {
+            line-height: 1.7;
+            overflow-wrap: anywhere;
+            word-break: normal;
+        }
+
+        .order-details-dialog button {
+            min-height: 44px;
+            max-width: 100%;
+            padding: 10px 16px;
+            border: 0;
+            background: #171717;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* ==================================
+           10. TABLET AND SMALL LAPTOPS
+        ================================== */
+
+        @media (max-width: 900px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .admin-container {
+                padding-inline: 20px;
+            }
+        }
+
+        /* ==================================
+           11. PHONES
+        ================================== */
+
+        @media (max-width: 600px) {
+            .admin-header {
+                padding: 18px 16px;
+            }
+
+            .brand {
+                margin-bottom: 12px;
+                font-size: clamp(24px, 7vw, 32px);
+            }
+
+            .admin-nav {
+                gap: 6px 18px;
+            }
+
+            .admin-nav a {
+                font-size: 12px;
+            }
+
+            .admin-container {
+                padding: 22px 14px 40px;
+            }
+
+            h1 {
+                margin-bottom: 18px;
+                font-size: clamp(27px, 8vw, 36px);
+            }
+
+            .stats-grid {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 10px;
+                margin: 22px 0 30px;
+            }
+
+            .stat-card {
+                padding: 16px;
+            }
+
+            .stat-card p {
+                margin-bottom: 8px;
+            }
+
+            .stat-card strong {
+                font-size: 27px;
+            }
+
+            .section-heading {
+                margin-bottom: 12px;
+            }
+
+            .orders-table {
+                min-width: 1000px;
+            }
+
+            .orders-table th,
+            .orders-table td {
+                padding: 12px;
+            }
+
+            .admin-login {
+                margin-top: 28px;
+                padding: 18px;
+            }
+
+            .admin-login form .button {
+                padding-inline: 12px;
+            }
+
+            .order-details-dialog {
+                width: calc(100% - 20px);
+                max-height: 88vh;
+                max-height: 88dvh;
+                padding: 18px;
+            }
+        }
+
+        /* ==================================
+           12. VERY NARROW PHONES
+        ================================== */
+
+        @media (max-width: 360px) {
+            .admin-header {
+                padding-inline: 12px;
+            }
+
+            .admin-container {
+                padding-inline: 10px;
+            }
+
+            .admin-nav {
+                column-gap: 12px;
+            }
+
+            .admin-nav a {
+                font-size: 11px;
+            }
+
+            .button {
+                padding: 11px 12px;
+                font-size: 13px;
+            }
+
+            .stat-card {
+                padding: 14px;
+            }
+
+            .admin-login {
+                padding: 14px;
+            }
+        }
+
+        /* ==================================
+           13. LANDSCAPE PHONES
+        ================================== */
+
+        @media (max-height: 500px) and (orientation: landscape) {
+            .admin-header {
+                padding-block: 12px;
+            }
+
+            .brand {
+                margin-bottom: 8px;
+            }
+
+            .admin-container {
+                padding-top: 18px;
+                padding-bottom: 28px;
+            }
+
+            .order-details-dialog {
+                max-height: 90vh;
+                max-height: 90dvh;
+            }
+        }
+
+        /* ==================================
+           14. REDUCED MOTION ACCESSIBILITY
+        ================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+/* PRODUCT MANAGEMENT */
+.dashboard-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.dashboard-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.dashboard-tabs a {
+    padding: 10px 16px;
+    border: 1px solid #d9d0c4;
+    color: #201f1c;
+    background: #fffdfa;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.dashboard-tabs a:hover {
+    background: #eee7dd;
+}
+
+.product-management {
+    margin-top: 40px;
+    padding: clamp(16px, 3vw, 28px);
+    border: 1px solid #e3dbcf;
+    background: #fffdfa;
+    scroll-margin-top: 20px;
+}
+
+.product-management h2 {
+    margin-top: 0;
+}
+
+.product-management h3 {
+    margin-top: 24px;
+}
+
+.product-form {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 9px;
+    max-width: 700px;
+}
+
+.product-form label,
+.variant-editor label {
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.product-form input,
+.product-form select,
+.product-form textarea {
+    width: 100%;
+    min-width: 0;
+    min-height: 44px;
+    padding: 11px 12px;
+    border: 1px solid #d9d0c4;
+    border-radius: 0;
+    background: #fff;
+    color: #201f1c;
+}
+
+.product-form textarea {
+    resize: vertical;
+}
+
+.variant-editor {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+    margin-top: 16px;
+    padding: 16px;
+    border: 1px solid #e3dbcf;
+    background: #faf6ef;
+}
+
+.variant-editor h3,
+.variant-editor p {
+    margin: 0;
+}
+
+.product-form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+#product-message {
+    min-height: 24px;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+    .dashboard-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .product-management {
+        padding: 16px;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+
+    <header class="admin-header">
+        <p class="brand">ZAINAB CLUB.</p>
+
+        <nav class="admin-nav" aria-label="Main navigation">
+            <a href="index.html">HOME</a>
+            <a href="index.html#men">MEN</a>
+            <a href="index.html#jewellery">JEWELLERY</a>
+        </nav>
+    </header>
+
+    <main class="admin-container">
+
+        <p class="eyebrow">Store Management</p>
+       
+<div class="dashboard-heading">
+    <h1>Store Dashboard</h1>
+
+    <nav class="dashboard-tabs" aria-label="Dashboard sections">
+        <a href="#orders-section">Orders</a>
+        <a href="#products-section">Products</a>
+        <a href="#inventory-section">Inventory</a>
+    </nav>
+</div>
+
+
+        <button
+            type="button"
+            class="button"
+            id="refresh-orders">
+            Refresh Orders
+        </button>
+
+        <section class="stats-grid" aria-label="Order statistics">
+
+            <article class="stat-card">
+                <p>Total Orders Loaded</p>
+                <strong id="total-orders">0</strong>
+            </article>
+
+            <article class="stat-card">
+                <p>Pending Payment</p>
+                <strong id="pending-orders">0</strong>
+            </article>
+
+            <article class="stat-card">
+                <p>Paid Orders</p>
+                <strong id="paid-orders">0</strong>
+            </article>
+
+        </section>
+
+       <section id="orders-section" aria-labelledby="recent-orders-heading"></section>
+
+            <h2 class="section-heading" id="recent-orders-heading">
+                Recent Orders
+            </h2>
+
+            <p id="admin-message" role="status" aria-live="polite"></p>
+
+            <div
+                class="table-responsive"
+                tabindex="0"
+                role="region"
+                aria-label="Orders table. Scroll horizontally to see all columns.">
+
+                <table class="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Order</th>
+                            <th>Customer</th>
+                            <th>Date</th>
+                            <th>Total</th>
+                            <th>Payment</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="orders-table-body">
+                        <tr>
+                            <td colspan="8">Sign in to load orders.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </section>
+        
+<!-- PRODUCT MANAGEMENT SECTION -->
+<section id="products-section" class="product-management"
+         aria-labelledby="products-heading">
+
+    <h2 id="products-heading">Product Management</h2>
+
+    <p id="product-message" role="status" aria-live="polite"></p>
+
+    <h3 id="product-form-heading">Add New Product</h3>
+
+    <form id="product-form" class="product-form">
+
+        <input type="hidden" id="product-id">
+
+        <label for="product-name">Product Name</label>
+        <input id="product-name" name="name" type="text"
+               placeholder="e.g. Everyday Essential Trackpant" required>
+
+        <label for="product-slug">Product Slug</label>
+        <input id="product-slug" name="slug" type="text"
+               placeholder="e.g. everyday-essential-trackpant" required>
+
+        <label for="product-category">Category</label>
+        <select id="product-category" name="category" required>
+            <option value="mens_clothing">Men's Clothing</option>
+            <option value="womens_jewellery">Women's Jewellery</option>
+        </select>
+
+        <label for="product-price">Price (₹)</label>
+        <input id="product-price" name="priceRupees" type="number"
+               min="1" step="1" placeholder="450" required>
+
+        <label for="product-description">Description</label>
+        <textarea id="product-description" name="description"
+                  rows="3" placeholder="Describe this product"></textarea>
+
+        <label for="product-image">Image URL or Storage Path</label>
+        <input id="product-image" name="mediaPath" type="text"
+               placeholder="Image URL (upload feature comes later)">
+
+        <div class="variant-editor">
+            <h3>Product Variant</h3>
+            <p>Start with one size/colour combination. We can add multiple variants next.</p>
+
+            <label for="product-size">Size</label>
+            <input id="product-size" type="text"
+                   placeholder="S, M, L, XL (or leave blank for jewellery)">
+
+            <label for="product-colour">Colour</label>
+            <input id="product-colour" type="text"
+                   placeholder="Black, Beige, Green">
+
+            <label for="product-sku">SKU (optional)</label>
+            <input id="product-sku" type="text"
+                   placeholder="e.g. TRACK-BLK-M">
+
+            <label for="product-quantity">Stock Quantity</label>
+            <input id="product-quantity" type="number"
+                   min="0" step="1" value="0" required>
+        </div>
+
+        <div class="product-form-actions">
+            <button type="submit" class="button" id="save-product-button">
+                Save Product
+            </button>
+
+            <button type="button" class="button" id="cancel-product-edit"
+                    hidden>
+                Cancel Edit
+            </button>
+        </div>
+    </form>
+
+    <h3>Existing Products</h3>
+
+    <button type="button" class="button" id="refresh-products">
+        Refresh Products
+    </button>
+
+    <div class="table-responsive" tabindex="0"
+         role="region" aria-label="Products table">
+        <table class="orders-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody id="products-table-body">
+                <tr>
+                    <td colspan="5">Sign in to load products.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</section>
+<!-- END PRODUCT MANAGEMENT SECTION -->
+
+<!-- INVENTORY MANAGEMENT -->
+<section id="inventory-section" class="product-management"
+         aria-labelledby="inventory-heading">
+
+    <h2 id="inventory-heading">Inventory Management</h2>
+
+    <p id="inventory-message" role="status" aria-live="polite">
+        Sign in to view inventory.
+    </p>
+
+    <div class="product-form">
+        <label for="inventory-filter">Filter stock</label>
+        <select id="inventory-filter">
+            <option value="all">All stock</option>
+            <option value="unconfirmed">Unconfirmed</option>
+            <option value="in-stock">In Stock</option>
+            <option value="out-of-stock">Out of Stock</option>
+        </select>
+    </div>
+
+    <p>
+        Unconfirmed means the actual stock quantity has not been entered.
+        Saving 0 explicitly marks a variant as out of stock.
+    </p>
+
+    <button type="button" class="button" id="refresh-inventory">
+        Refresh Inventory
+    </button>
+
+    <div class="table-responsive" tabindex="0"
+         role="region" aria-label="Inventory table">
+        <table class="orders-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Size</th>
+                    <th>Colour</th>
+                    <th>SKU</th>
+                    <th>Price</th>
+                    <th>Stock Status</th>
+                    <th>Quantity</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="inventory-table-body">
+                <tr>
+                    <td colspan="8">Sign in to load inventory.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+<!-- END INVENTORY MANAGEMENT -->
+
+
+        <section class="admin-login" aria-labelledby="admin-login-heading">
+
+            <h2 id="admin-login-heading">Admin Login</h2>
+
+            <p>Sign in with your store administrator account.</p>
+
+            <form id="admin-login-form">
+
+                <label for="admin-email">Admin Email</label>
+                <input
+                    id="admin-email"
+                    name="email"
+                    type="email"
+                    placeholder="Enter your admin email"
+                    autocomplete="username"
+                    autocapitalize="none"
+                    required>
+
+                <label for="admin-password">Password</label>
+                <input
+                    id="admin-password"
+                    name="password"
+                    type="password"
+                    placeholder="Enter your password"
+                    autocomplete="current-password"
+                    required>
+
+                <button type="submit" class="button">
+                    Sign In &amp; Load Dashboard
+                </button>
+
+            </form>
+        </section>
+
+    </main>
+
+    <script src="admin.js" defer></script>
+
+</body>
+</html>

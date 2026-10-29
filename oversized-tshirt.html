@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Oversized Streetwear T-shirt | ZAINAB CLUB</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="product.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <a href="index.html" class="logo">ZAINAB CLUB.</a>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#men">Men</a>
+            <a href="index.html#jewellery">Jewellery</a>
+             <a href="cart.html">Cart</a>
+        </nav>
+    </header>
+
+    <!-- PRODUCT DETAILS -->
+    <main class="product-details">
+
+        <div class="product-gallery">
+           
+<div class="main-product-image">
+    <video autoplay muted loop playsinline>
+        <source src="./polo.mp4" type="video/mp4">
+        Your browser does not support video playback.
+    </video>
+</div>
+
+        </div>
+
+        <div class="product-description">
+
+            <p class="product-category">MEN'S COLLECTION</p>
+
+            <h1>Oversized Streetwear T-shirt</h1>
+
+            <p class="detail-price">₹250</p>
+
+            <p class="detail-text">
+                A relaxed oversized fit made for everyday streetwear
+                and effortless styling.
+            </p>
+
+            <h3>Select Size</h3>
+
+<h3>Select Size</h3>
+
+<div class="size-options">
+    <button type="button" class="option-button" data-size="S">S</button>
+    <button type="button" class="option-button" data-size="M">M</button>
+    
+</div>
+
+<h3>Select Colour</h3>
+
+<div class="colour-options">
+    <button type="button" class="option-button" data-colour="Red">Red</button>
+    
+</div>
+
+<button class="add-to-cart" id="addToCart" type="button">
+    ADD TO CART — ₹250
+</button>
+
+<p id="cart-message" aria-live="polite"></p>
+
+<p class="delivery-note">
+    Product photos and availability will be confirmed before launch.
+</p>
+
+
+        </div>
+
+    </main>
+
+<script src="./js/catalogue.js"></script>
+<script src="./js/cart-store.js"></script>
+<script>
+    const sizeButtons = document.querySelectorAll("[data-size]");
+    const colourButtons = document.querySelectorAll("[data-colour]");
+    const addToCartButton = document.getElementById("addToCart");
+    const cartMessage = document.getElementById("cart-message");
+
+    sizeButtons.forEach(function(button) {
+        button.addEventListener("click", function() {
+            sizeButtons.forEach(function(item) {
+                item.classList.remove("selected");
+            });
+
+            button.classList.add("selected");
+        });
+    });
+
+    colourButtons.forEach(function(button) {
+        button.addEventListener("click", function() {
+            colourButtons.forEach(function(item) {
+                item.classList.remove("selected");
+            });
+
+            button.classList.add("selected");
+        });
+    });
+
+    addToCartButton.addEventListener("click", function() {
+        const selectedSize = document.querySelector("[data-size].selected");
+        const selectedColour = document.querySelector("[data-colour].selected");
+
+        if (!selectedSize) {
+            cartMessage.textContent = "Please select a size first.";
+            return;
+        }
+
+        if (!selectedColour) {
+            cartMessage.textContent = "Please select a colour first.";
+            return;
+        }
+
+        const size = selectedSize.dataset.size;
+        const colour = selectedColour.dataset.colour;
+
+        addToZainabCart({
+            name: "Oversized Streetwear T-shirt",
+            price: 250,
+            size: size,
+            colour: colour,
+            quantity: 1
+        });
+
+        cartMessage.textContent =
+            "✓ Added to cart! Oversized Streetwear T-shirt — Size " +
+            size + ", " + colour + ".";
+    });
+</script>
+
+</body>
+</html>
