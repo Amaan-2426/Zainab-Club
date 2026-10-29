@@ -1,5 +1,7 @@
 // Change this if your API is not on this computer / port.
-const API_BASE = "https://zainab-club-api.onrender.com";
+
+const API_BASE = "https://zainab-club-api.onrender.com/api";
+
 
 async function apiRequest(path, options = {}) {
   const response = await fetch(API_BASE + path, {
