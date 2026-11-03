@@ -19,6 +19,7 @@ const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.join(__dirname, "..", ".env") });
 
 const app = express();
+app.set("trust proxy", 1);
 const port = Number(process.env.PORT) || 3000;
 
 const corsOrigin =
@@ -63,13 +64,13 @@ app.use(
             "development-only-secret-change-me",
         resave: false,
         saveUninitialized: false,
-        cookie: {
-            httpOnly: true,
-            secure: isProduction,
-            sameSite: "lax",
-            maxAge: 1000 * 60 * 60 * 8,
-            path: "/"
-        }
+       cookie: {
+    httpOnly: true,
+    secure: isProduction,
+    sameSite: isProduction ? "none" : "lax",
+    maxAge: 1000 * 60 * 60 * 8,
+    path: "/"
+}
     })
 );
 
