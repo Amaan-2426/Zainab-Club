@@ -1,4 +1,4 @@
-const API_BASE = "https://zainab-club-api.onrender.com";
+const API_BASE = "https://zainab-club-api.onrender.com/api";
 
 // =========================================
 // LOGIN ELEMENTS
